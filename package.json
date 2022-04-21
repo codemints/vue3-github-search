@@ -16,6 +16,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",
     "autoprefixer": "^10.4.4",
+    "netlify-cli": "^10.0.0",
     "postcss": "^8.4.12",
     "sass": "^1.50.0",
     "tailwindcss": "^3.0.24",
