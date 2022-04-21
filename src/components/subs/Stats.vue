@@ -16,9 +16,6 @@
 </template>
 
 <script>
-  import { ref } from 'vue'
-  import { userData } from '@/src/composables/temp-info'
-
   export default {
     name: 'Stats',
     props: ['store'],
@@ -37,13 +34,42 @@
   #stats__card {
     display: flex;
     border-radius: 1rem;
-    padding-inline: 3.2rem;
-    padding-block: 1.6rem;
-    margin-top: 3.2rem;
+    padding-inline: 1.3rem;
+    padding-block: 1.8rem;
+    margin-top: 2.4rem;
 
     > div {
       flex: 1 0 33%;
+      text-align: center;
+
+      p {
+        font-size: 1.1rem;
+      }
     }
   }
 
+  @media screen and (min-width: 768px) {
+    #stats__card {
+      padding-block: 1.6rem;
+      padding-inline: 3.2rem;
+      
+      > div {
+        text-align: start;
+        h2 {
+          font-size: 2.2rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 932px) {
+    #stats__card {
+      margin-top: 3.2rem;
+      width: calc(100% - (11.7rem + 3.6rem));
+      margin-left: auto;
+    }
+  }
 </style>

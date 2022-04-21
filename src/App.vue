@@ -52,6 +52,7 @@
 </script>
 
 <style lang="scss" scoped>
+  
   #root {
     display: flex;
     align-items: center;
@@ -59,11 +60,20 @@
 
     min-height: 100vh;
     width: 100vw;
+
+    padding-block: 5rem;
+    padding-inline: 2.4rem;
   }
 
   #components {
     max-width: 73rem;
     width: 100%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    #root {
+      padding-inline: 10rem;
+    }
   }
 
 </style>

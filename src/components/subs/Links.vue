@@ -69,7 +69,15 @@
     flex-flow: row wrap;
     column-gap: $gap;
 
-    margin-top: 3.6rem;
+    margin-top: 2.4rem;
+
+    p, a {
+      white-space: nowrap;
+    }
+
+    i {
+      width: 2.4rem;
+    }
 
     i, a {
       transition: $base;
@@ -82,12 +90,15 @@
 
       flex: 1 0 calc(50% - $gap);
 
-      &:nth-last-of-type(1),
-      &:nth-last-of-type(2) {
-        margin-top: 1.6rem;
-      }
+      margin-top: 1.6rem;
     }
   }
 
+  @media screen and (min-width: 932px) {
+    #links__card {
+      width: calc(100% - (11.7rem + 3.6rem));
+      margin-left: auto;
+    }
+  }
 
 </style>

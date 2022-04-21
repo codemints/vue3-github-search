@@ -6,14 +6,9 @@
       mode === false ? 'shadowed' : ''
     ]"
   >
-    <div class="user__img">
-      <img :src="store.image" alt="">
-    </div>
-    <div class="user__info">
-      <Bio :store="store"/>
-      <Stats :store="store"/>
-      <Links :store="store"/>
-    </div>
+    <Bio :store="store"/>
+    <Stats :store="store"/>
+    <Links :store="store"/>
   </section>
 </template>
 
@@ -51,23 +46,15 @@
 
 <style lang="scss" scoped>
   #user__card {
-    display: flex;
-    gap: 3.6rem;
-
-    padding: 4.8rem;
+    padding-block: 3.2rem;
+    padding-inline: 2.4rem;
     margin-top: 2.4rem;
   }
 
-  .user__img {
-    max-width: 11.7rem;
-    max-height: 11.7rem;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  .user__info {
-    width: 100%;
+  @media screen and (min-width: 932px) {
+    #user__card {
+      padding-inline: 4.8rem;
+      padding-block: 4.8rem;
+    }
   }
 </style>
