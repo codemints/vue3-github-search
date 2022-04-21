@@ -9,12 +9,12 @@
   >
     <div class="[ input__group ] [ bg-clr-light-200 dark:bg-clr-dark-800 ]">
       <i class="[ fa-regular fa-magnifying-glass ] [ text-clr-base ]"></i>
-      <input ref="input" @input="updateInput" class="[ cursor-text ] [ text-clr-dark-800 dark:text-clr-dark-100 ]" type="text" placeholder="Search A GitHub username...">
+      <input ref="input" @input="updateInput" @keyup.enter="fetchUser" class="[ cursor-text ] [ text-clr-dark-800 dark:text-clr-dark-100 ]" type="text" placeholder="Search A GitHub username...">
     </div>
     <div v-if="userStatus > 399" class="[ response ]">
       <p class="[ font-bold text-clr-warn whitespace-nowrap ]">No Result</p>
     </div>
-    <button @click="fetchUser()">Search</button>
+    <button @click="fetchUser">Search</button>
   </section>
 </template>
 
@@ -46,6 +46,7 @@
 
       const updateInput = (e) => {
         searchTerm.value += e.data
+        console.log(e)
       }
       
       return {
