@@ -1,26 +1,6 @@
-@use "@scss/base" as b;
+@use "@scss/core";
 
 @import "@ico/font-awesome/scss/fontawesome.scss";
-@import "@ico/font-awesome/scss/solid.scss";
 @import "@ico/font-awesome/scss/regular.scss";
+@import "@ico/font-awesome/scss/solid.scss";
 @import "@ico/font-awesome/scss/brands.scss";
-@import "@ico/font-awesome/scss/duotone.scss";
-
-body {
-  min-width: 100vw;
-  min-height: 100vh;
-}
-
-#app {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  text-align: center;
-  width: 1140px;
-
-  h1 {
-    color: b.$color;
-  }
-}

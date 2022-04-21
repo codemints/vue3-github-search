@@ -1,18 +1,69 @@
-<script setup>
-import Welcome from './components/Welcome.vue'
-</script>
-
 <template>
-  <Welcome />
+  <main id="root" class="bg-clr-light-200 dark:bg-clr-dark-800">
+    <section id="components">
+      <Title />
+      <Search :classnames="classnames" />
+      <Card :classnames="classnames" />
+    </section>
+  </main>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<script>
+  import Title from './components/Title.vue'
+  import Search from './components/Search.vue'
+  import Card from './components/Card.vue'
+
+  import { watch, onMounted } from 'vue'
+  import { mode} from '@/src/composables/mode'
+  import { defineUser } from '@/store/user'
+  
+  export default {
+    name: 'App',
+
+    components: {
+      Title,
+      Search,
+      Card,
+    },
+
+    setup () {
+      const user = defineUser()
+      const classnames = [
+        'bg-clr-dark-100',
+        'dark:bg-clr-dark-600',
+        'rounded-3xl'
+      ]
+
+      onMounted(() => {
+        user.handleUserRequest('codemints')
+      })
+      
+      watch(mode, () => {
+        const body = document.body
+        mode.value === true ? body.classList.add('dark') : body.classList.remove('dark')
+      })
+
+      return {
+        classnames,
+        mode,
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  #root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  #components {
+    max-width: 73rem;
+    width: 100%;
+  }
+
 </style>

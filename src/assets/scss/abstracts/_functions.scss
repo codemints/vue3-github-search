@@ -1,0 +1,7 @@
+@function setInline($py) {
+  @return $py * 2;
+}
+@mixin setButtonPadding($py) {
+  padding-block: $py;
+  padding-inline: setInline($py);
+}
